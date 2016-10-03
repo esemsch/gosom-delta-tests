@@ -1,6 +1,6 @@
 package main
 
-import "github.com/milosgajdos83/gosom/som"
+import "github.com/esemsch/gosom/som"
 
 func main() {
 	som.RunDeltaTests()
