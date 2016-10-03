@@ -19,6 +19,16 @@ while getopts :b: OPTION; do
 	esac
 done
 
+#trap exit
+function exitHandler() {
+	if [[ $? == 0 ]]; then
+		echo SUCCESS
+	else
+		echo FAILURE
+		exit 1
+	fi
+}
+trap exitHandler EXIT
 
 echo "Cleaning up"
 rm -rf $TEST_DIR $OUTPUT_DIR
@@ -44,9 +54,3 @@ popd
 go run run.go > $OUTPUT_DIR/new.txt
 
 diff $OUTPUT_DIR/accepted.txt $OUTPUT_DIR/new.txt
-if [[ $? == 0 ]]; then
-	echo SUCCESS
-else
-	echo FAILURE
-	exit 1
-fi

@@ -11,5 +11,5 @@ COMMIT_TO_ACCEPT=`git rev-parse HEAD`
 popd
 echo $COMMIT_TO_ACCEPT > accepted_commit.txt
 echo "Setting accepted revision to $COMMIT_TO_ACCEPT"
-git commit -a -m "Setting accepted revision to $COMMIT_TO_ACCEPT. {1:-}"
+git commit -a -m "Setting accepted revision to $COMMIT_TO_ACCEPT. ${1:-}"
 git push
